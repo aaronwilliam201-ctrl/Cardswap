@@ -138,6 +138,32 @@ function escapeHtml(str) {
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
+// ---------- EMAIL SENDING ROUTE ----------
+app.post('/send-email', async (req, res) => {
+  const { name, email, message } = req.body;
 
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.Email_User,
+      pass: process.env.Email_Pass
+    }
+  });
+
+  const mailOptions = {
+    from: process.env.Email_User,
+    to: process.env.Receiver_Email,
+    subject: `New message from ${name}`,
+    text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    res.status(200).json({ success: true, message: 'Email sent successfully!' });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).json({ success: false, message: 'Error sending email.' });
+  }
+});
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Cardswap server running on port ${PORT}`));
