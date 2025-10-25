@@ -14,7 +14,6 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const PUBLIC = path.join(__dirname, 'public');
 const DATA_DIR = path.join(__dirname, 'data');
 const UPLOAD_DIR = path.join(__dirname, 'uploads');
 const SUB_FILE = path.join(DATA_DIR, 'submissions.json');
@@ -23,7 +22,7 @@ if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR, { recursive: true });
 if (!fs.existsSync(SUB_FILE)) fs.writeFileSync(SUB_FILE, '[]', 'utf8');
 
-app.use(express.static(PUBLIC));
+app.use(express.static(__dirname));
 
 // Multer storage
 const storage = multer.diskStorage({
