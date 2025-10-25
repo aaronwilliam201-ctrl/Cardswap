@@ -38,6 +38,13 @@ const upload = multer({ storage: storage, limits: { fileSize: 5 * 1024 * 1024 } 
 
 // POST /submit - receives trade requests (requires consent)
 app.post('/submit', upload.single('cardImage'), (req, res) => {
+console.log('Received submission:');
+console.log('Body:', req.body);
+if (req.file) {
+  console.log('Uploaded file info:', req.file);
+} else {
+  console.log('No file uploaded.');
+}
   const { name, contact, brand, value, code, consent } = req.body;
   if (!consent || consent !== 'yes') {
     return res.status(400).send('Consent is required.');
