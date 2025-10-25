@@ -165,5 +165,6 @@ app.post('/send-email', async (req, res) => {
     res.status(500).json({ success: false, message: 'Error sending email.' });
   }
 });
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Cardswap server running on port ${PORT}`));
+const PORT = process.env.PORT || 5000;
+const HOST = '0.0.0.0';
+app.listen(PORT, HOST, () => console.log(`Cardswap server running on ${HOST}:${PORT}`));
