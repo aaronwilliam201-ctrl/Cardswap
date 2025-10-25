@@ -1,0 +1,56 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Cardswap — Gift Card Exchange</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Cardswap</h1>
+      <p class="tagline">Trade or sell your gift cards quickly and securely.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>How it works</h2>
+      <ol>
+        <li>Fill the trade form below and attach a photo of your card (optional).</li>
+        <li>We review your submission and contact you via the contact details you provide.</li>
+        <li>Once verified we complete the trade or offer.</li>
+      </ol>
+    </section>
+
+    <section class="form-section">
+      <h2>Submit a Gift Card</h2>
+      <form id="tradeForm" method="POST" action="/submit" enctype="multipart/form-data">
+        <label>Full name<br/><input name="name" type="text" required></label>
+        <label>Contact email or phone<br/><input name="contact" type="text" required></label>
+        <label>Gift card brand (e.g., Amazon, iTunes)<br/><input name="brand" type="text" required></label>
+        <label>Card value (currency)<br/><input name="value" type="text" required></label>
+        <label>Card code (optional)<br/><input name="code" type="text" autocomplete="off"></label>
+        <label>Upload image of card (optional, max 5MB)<br/><input name="cardImage" type="file" accept="image/*"></label>
+        <label class="consent"><input name="consent" type="checkbox" value="yes" required> I consent to Cardswap storing my submission and contacting me. See the <a href="/privacy.html" target="_blank">privacy policy</a>.</label>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section class="notes">
+      <h3>Important</h3>
+      <p>Please do not submit fraudulent or stolen gift cards. All submissions are subject to verification. By submitting you confirm you own the card and have the right to transfer it.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Contact: <a href="mailto:aaronwilliam201@gmail.com">aaronwilliam201@gmail.com</a></p>
+      <p>&copy; 2025 Cardswap</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+
+:root { --green: #2ea44f; --white: #ffffff; --muted: #666; --maxw: 1000px; }
+body { font-family: Arial, sans-serif; margin:0; color:#222; background:var(--white); }
+.container { max-width:var(--maxw); margin:0 auto; padding:20px; }
+.site-header { background: linear-gradient(0deg, rgba(46,164,79,0.95), rgba(46,164,79,0.95)); color:var(--white); padding:30px 0; text-align:center; }
+.site-header h1 { margin:0; font-size:36px; }
+.tagline { margin:6px 0 0; opacity:0.95; }
+h2 { color:var(--green); }
+form { background:#f7fff8; border:1px solid #e6f4ea; padding:16px; border-radius:8px; }
+label { display:block; margin-bottom:12px; }
+input[type="text"], input[type="file"], input[type="email"], textarea { width:100%; padding:8px; box-sizing:border-box; border:1px solid #ddd; border-radius:4px; }
+button { background:var(--green); color:white; border:none; padding:10px 16px; border-radius:6px; cursor:pointer; }
+.consent { margin-top:8px; }
+.notes { margin-top:18px; font-size:14px; color:var(--muted); }
+.site-footer { border-top:1px solid #eee; padding:16px 0; text-align:center; margin-top:20px; }
+@media (max-width:600px) { .site-header h1 { font-size:28px; } }
